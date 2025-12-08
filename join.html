@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join the Club</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .join-form {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 320px;
+    }
+
+    .join-form h2 {
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+
+    .join-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .join-form input[type="text"],
+    .join-form input[type="email"],
+    .join-form select {
+      width: 100%;
+      padding: 8px 10px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+
+    .join-form input[type="text"]:focus,
+    .join-form input[type="email"]:focus,
+    .join-form select:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+
+    .join-form button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .join-form button:hover {
+      background-color: #0056b3;
+    }
+    .success-bar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(90deg,#28a745,#218838);
+      color: #fff;
+      text-align: center;
+      padding: 12px 16px;
+      font-weight: bold;
+      transform: translateY(-120%);
+      transition: transform 300ms ease;
+      z-index: 2000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .success-bar.show {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <form class="join-form" action="index.html" method="POST">
+    <h2>Join the Club</h2>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+    <label for="branch">Branch</label>
+    <input type="text" id="branch" name="branch" placeholder="Your branch" required />
+
+    <label for="year">Year</label>
+    <select id="year" name="year" required>
+      <option value="" disabled selected>Select your year</option>
+      <option value="1">1st Year</option>
+      <option value="2">2nd Year</option>
+      <option value="3">3rd Year</option>
+      <option value="4">4th Year</option>
+    </select>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="example@example.com" required />
+
+    <button type="submit">Submit</button>
+  </form>
+  <div id="successBar" class="success-bar" role="status" aria-live="polite" hidden>
+    Submission successful — redirecting...
+  </div>
+
+  <script>
+    (function(){
+      const form = document.querySelector('.join-form');
+      const successBar = document.getElementById('successBar');
+      form.addEventListener('submit', function(e){
+        // Only run our custom flow when the form is valid
+        if (!form.checkValidity()) return; // let browser show validation
+        e.preventDefault();
+        // Show success bar
+        successBar.hidden = false;
+        // Force a repaint then add the class so the transition runs
+        void successBar.offsetWidth;
+        successBar.classList.add('show');
+        // Disable submit button to avoid duplicate submissions
+        const btn = form.querySelector('button[type="submit"]');
+        if (btn) btn.disabled = true;
+        // After a short delay navigate to the next page
+        setTimeout(()=>{
+          window.location.href = 'index.html';
+        }, 1400);
+      });
+    })();
+  </script>
+</body>
+</html>

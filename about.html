@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About the Club</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .content {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .text-section {
+      flex: 1;
+    }
+
+    .text-section h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    .text-section p {
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .image-section {
+      flex: 0 0 300px;
+    }
+
+    .image-section img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+        padding: 30px 20px;
+      }
+      
+      .image-section {
+        flex: none;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>About Our Club</h1>
+    </div>
+    
+    <div class="content">
+      <div class="text-section">
+        <h2>Welcome to the Future College Club</h2>
+        <p>Our club brings together passionate students from all branches to explore cutting-edge technologies and innovative solutions. We focus on hands-on projects in AI, robotics, web development, and sustainable tech that prepare members for real-world challenges.</p>
+        <p>With regular workshops, hackathons, and industry expert sessions, members gain practical skills and build strong portfolios. Our collaborative environment fosters creativity and teamwork while connecting students with leading tech companies.</p>
+        <p>Whether you're a first-year exploring possibilities or a final-year student seeking advanced projects, our club provides the perfect platform to grow, learn, and innovate together.</p>
+        <p>Founded in 2020, we've grown to over 300 active members and successfully organized 50+ events, including national hackathons and tech fests.</p>
+      </div>
+      
+      <div class="image-section">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Club members collaborating on a tech project" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>
